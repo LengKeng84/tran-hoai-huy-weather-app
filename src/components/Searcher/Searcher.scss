@@ -1,0 +1,101 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.2s;
+
+  .searcher {
+    position: relative;
+    width: 600px;
+    height: 45px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 1px #fff;
+
+    input {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      padding: 0 40px 0 45px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+
+      &:focus {
+        border: 2px solid #fff;
+      }
+    }
+
+    .search_icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .clear_icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      &:hover i {
+        transform: scale(1.5);
+      }
+    }
+
+    // Container Result
+    .container_reuslt {
+      position: absolute;
+      left: 0;
+      top: 105%;
+      width: 100%;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      margin-top: 5px;
+      transition: background-color 0.2s;
+      overflow: hidden;
+
+      .item_result {
+        text-align: center;
+        padding: 10px 0;
+        background-color: rgba(0, 0, 0, 1);
+        border-bottom: 1px solid #fff;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(44, 44, 44);
+        }
+      }
+    }
+  }
+}
+.active {
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 2px 2px #fff;
+}
+
+// Mobile
+@media only screen and (max-width: 739px) {
+  .navbar {
+    height: 60px;
+    .searcher {
+      width: 350px;
+    }
+  }
+}
+
+// Tablet
+@media only screen and (min-width: 739) and (max-width: 1023px) {
+}

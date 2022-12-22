@@ -1,0 +1,379 @@
+.current_weather {
+  width: 620px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 30px 0;
+
+  .header {
+    padding-bottom: 15px;
+    text-align: center;
+
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .current_hour {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  .main_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // container1 - Start
+    .container1 {
+      width: 50%;
+      height: 245px;
+      z-index: 10;
+      transition: all 0.3s;
+
+      // temperature - Start
+      .temperature {
+        .temperature_main {
+          height: 80px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 700;
+          color: #f93b06;
+          white-space: nowrap;
+
+          span {
+            font-size: 80px;
+          }
+          sup {
+            font-size: 30px;
+          }
+        }
+        .temperature_main_cool {
+          color: #2626fb;
+        }
+
+        .temperature_feelLike {
+          font-size: 18px;
+          font-weight: 600;
+          text-align: center;
+          white-space: nowrap;
+
+          span {
+            font-size: 16px;
+          }
+        }
+      }
+      // temperature - End
+
+      // weather_des_icon - Start
+      .weather_des {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .weather_des_icon {
+          width: 80px;
+          height: 80px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .description {
+          text-transform: capitalize;
+        }
+      }
+      // weather_des_icon - End
+
+      // Other - Start
+      .other {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+
+        div {
+          width: 50%;
+          cursor: default;
+          padding-left: 30px;
+        }
+
+        i {
+          width: 20px;
+          margin-right: 5px;
+        }
+
+        .humidity {
+          i {
+            color: #009ae2;
+          }
+        }
+        .pressure {
+          i {
+            color: #681500;
+          }
+        }
+        .wind {
+          i {
+            color: #00c300;
+          }
+        }
+        .cloudiness {
+          i {
+            color: #99c8de;
+          }
+        }
+        > div {
+          text-align: center;
+        }
+      }
+      // Other - End
+    }
+    // container1 - End
+
+    .more_btn {
+      display: none;
+    }
+
+    // display2_container2 - Start
+    .container2 {
+      width: 50%;
+      height: 245px;
+      padding: 0 25px;
+      transition: all 0.3s;
+
+      .more_btn {
+        display: none;
+      }
+
+      .container2_header {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+
+        i {
+          display: none;
+        }
+      }
+
+      // temperature - Start
+      .temperature {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        i {
+          color: red;
+          font-size: 20px;
+        }
+
+        .temperature_item {
+          margin-left: 20px;
+
+          .temperature_item_content {
+            font-weight: 700;
+            color: #f93b06;
+          }
+          .temperature_item_content_cool {
+            color: #4d4dff;
+          }
+        }
+      }
+      // temperature - End
+
+      // pressure - Start
+      .pressure {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-top: 15px;
+
+        div {
+          margin-right: 20px;
+
+          i {
+            font-size: 20px;
+            margin-right: 8px;
+          }
+        }
+        .pressure_ground i {
+          color: #471002;
+        }
+        .pressure_sea i {
+          color: #6a6af4;
+        }
+      }
+      // pressure - End
+
+      // Wind - Start
+      .wind {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-top: 15px;
+
+        .wind_direction {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+
+          .wind_direction_icon {
+            position: relative;
+
+            :nth-child(1) {
+              font-size: 20px;
+              color: #00c300;
+            }
+
+            :nth-child(2) {
+              position: absolute;
+              top: 40%;
+              left: 70%;
+              color: rgb(157, 231, 11);
+            }
+          }
+          .wind_direction_content {
+            margin-left: 20px;
+          }
+        }
+
+        .wind_gust {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          margin-left: 20px;
+
+          .wind_gust_icon {
+            position: relative;
+
+            :nth-child(1) {
+              font-size: 20px;
+              color: #00c300;
+            }
+
+            :nth-child(2) {
+              position: absolute;
+              top: 40%;
+              left: 70%;
+              color: red;
+            }
+          }
+          .wind_gust_content {
+            margin-left: 20px;
+          }
+        }
+      }
+      // Wind - End
+
+      // visibility - Start
+      .visibility {
+        margin-top: 15px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        div {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          i {
+            font-size: 20px;
+            color: #979797;
+            margin-right: 10px;
+          }
+        }
+      }
+      // visibility - End
+
+      // time_data_calculation - Start
+      .time_data_calculation {
+        display: flex;
+        flex-direction: column;
+        justify-self: start;
+        align-items: center;
+        margin-top: 15px;
+      }
+      // time_data_calculation - End
+    }
+    // display2_container2 - End
+
+    // Line
+    .line {
+      width: 1px;
+      height: 180px;
+      background-color: #fff;
+    }
+  }
+}
+
+// Mobile
+@media only screen and (max-width: 739px) {
+  .current_weather {
+    width: 100%;
+
+    //header
+    .header {
+      text-align: center;
+      padding-bottom: 15px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .current_hour {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    // main_container
+    .main_container {
+      flex-direction: column;
+
+      .container1 {
+        width: 80%;
+        height: auto;
+        padding-bottom: 20px;
+      }
+
+      .more_btn {
+        display: flex;
+        justify-content: center;
+
+        button {
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 10px;
+          padding: 10px 15px;
+        }
+      }
+
+      .container2 {
+        display: none;
+        width: 80%;
+        height: auto;
+        padding-top: 10px;
+
+        .container2_header {
+          display: none;
+        }
+      }
+      .container2_active {
+        display: block;
+      }
+
+      .line {
+        display: none;
+      }
+    }
+  }
+}
+
+// Tablet
+@media only screen and (min-width: 739px) and (max-width: 1023px) {
+  .current_weather {
+    width: 100%;
+  }
+}
