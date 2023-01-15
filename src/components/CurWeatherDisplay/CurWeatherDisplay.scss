@@ -1,5 +1,5 @@
 .current_weather {
-  width: 620px;
+  width: 900px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   padding: 30px 0;
@@ -25,7 +25,7 @@
 
     // container1 - Start
     .container1 {
-      width: 50%;
+      width: 60%;
       height: 245px;
       z-index: 10;
       transition: all 0.3s;
@@ -95,10 +95,20 @@
         align-items: center;
         flex-wrap: wrap;
 
-        div {
+        .other_container {
           width: 50%;
           cursor: default;
+          text-align: left;
           padding-left: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+
+          .value {
+            font-size: 17px;
+            font-weight: 600;
+          }
         }
 
         i {
@@ -140,9 +150,8 @@
 
     // display2_container2 - Start
     .container2 {
-      width: 50%;
+      width: 40%;
       height: 245px;
-      padding: 0 25px;
       transition: all 0.3s;
 
       .more_btn {
@@ -153,140 +162,166 @@
         text-align: center;
         font-size: 18px;
         font-weight: 700;
+        margin-bottom: 10px;
 
         i {
           display: none;
         }
       }
+      .container2_container {
+        padding-left: 30px;
 
-      // temperature - Start
-      .temperature {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-
-        i {
-          color: red;
-          font-size: 20px;
-        }
-
-        .temperature_item {
-          margin-left: 20px;
-
-          .temperature_item_content {
-            font-weight: 700;
-            color: #f93b06;
-          }
-          .temperature_item_content_cool {
-            color: #4d4dff;
-          }
-        }
-      }
-      // temperature - End
-
-      // pressure - Start
-      .pressure {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        margin-top: 15px;
-
-        div {
-          margin-right: 20px;
+        // temperature - Start
+        .temperature {
+          display: grid;
+          grid-template-columns: 20px auto;
+          grid-template-rows: 30px 30px;
 
           i {
-            font-size: 20px;
-            margin-right: 8px;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            color: red;
+            font-size: 22px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
           }
-        }
-        .pressure_ground i {
-          color: #471002;
-        }
-        .pressure_sea i {
-          color: #6a6af4;
-        }
-      }
-      // pressure - End
 
-      // Wind - Start
-      .wind {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        margin-top: 15px;
-
-        .wind_direction {
-          display: flex;
-          justify-content: start;
-          align-items: center;
-
-          .wind_direction_icon {
-            position: relative;
-
-            :nth-child(1) {
-              font-size: 20px;
-              color: #00c300;
-            }
-
-            :nth-child(2) {
-              position: absolute;
-              top: 40%;
-              left: 70%;
-              color: rgb(157, 231, 11);
-            }
-          }
-          .wind_direction_content {
+          .temperature_item {
             margin-left: 20px;
+
+            .temperature_item_content {
+              font-weight: 700;
+              color: #f93b06;
+            }
+            .temperature_item_content_cool {
+              color: #4d4dff;
+            }
           }
         }
+        // temperature - End
 
-        .wind_gust {
+        // pressure - Start
+        .pressure {
           display: flex;
           justify-content: start;
           align-items: center;
-          margin-left: 20px;
+          margin-top: 15px;
 
-          .wind_gust_icon {
-            position: relative;
+          div {
+            margin-right: 20px;
 
-            :nth-child(1) {
+            i {
               font-size: 20px;
-              color: #00c300;
-            }
-
-            :nth-child(2) {
-              position: absolute;
-              top: 40%;
-              left: 70%;
-              color: red;
+              margin-right: 8px;
             }
           }
-          .wind_gust_content {
-            margin-left: 20px;
+          .pressure_ground i {
+            color: #471002;
+          }
+          .pressure_sea i {
+            color: #6a6af4;
           }
         }
-      }
-      // Wind - End
+        // pressure - End
 
-      // visibility - Start
-      .visibility {
-        margin-top: 15px;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-
-        div {
+        // Wind - Start
+        .wind {
           display: flex;
           justify-content: start;
           align-items: center;
+          margin-top: 15px;
+
+          .wind_direction {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+
+            .wind_direction_icon {
+              position: relative;
+
+              :nth-child(1) {
+                font-size: 20px;
+                color: #00c300;
+              }
+
+              :nth-child(2) {
+                position: absolute;
+                top: 40%;
+                left: 70%;
+                color: rgb(157, 231, 11);
+              }
+            }
+            .wind_direction_content {
+              margin-left: 20px;
+
+              span {
+                font-size: 17px;
+                font-weight: 700;
+              }
+            }
+          }
+
+          .wind_gust {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-left: 20px;
+
+            .wind_gust_icon {
+              position: relative;
+
+              :nth-child(1) {
+                font-size: 20px;
+                color: #00c300;
+              }
+
+              :nth-child(2) {
+                position: absolute;
+                top: 40%;
+                left: 70%;
+                color: red;
+              }
+            }
+            .wind_gust_content {
+              margin-left: 20px;
+
+              span {
+                font-size: 17px;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+        // Wind - End
+
+        // visibility - Start
+        .visibility {
+          margin-top: 15px;
+          display: flex;
+          justify-content: start;
+          align-items: center;
+
           i {
             font-size: 20px;
             color: #979797;
             margin-right: 10px;
           }
+          div {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin-left: 7px;
+
+            span {
+              font-size: 17px;
+              font-weight: 700;
+              margin-left: 5px;
+            }
+          }
         }
+        // visibility - End
       }
-      // visibility - End
 
       // time_data_calculation - Start
       .time_data_calculation {

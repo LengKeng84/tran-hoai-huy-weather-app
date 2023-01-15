@@ -59,36 +59,32 @@ function CurWeatherDisplay({ data }) {
           {/* Other - Start */}
           <div className="other">
             {/* Humidity */}
-            <Tippy theme="light" content="Humidity">
-              <div className="humidity">
-                <i class="fa-solid fa-droplet"></i>
-                <span>{data?.main.humidity}%</span>
-              </div>
-            </Tippy>
+            <div className="humidity other_container">
+              <i class="fa-solid fa-droplet"></i>
+              <span className="title">Humidity: </span>
+              <span className="value">{data?.main.humidity}%</span>
+            </div>
 
             {/* Pressure */}
-            <Tippy theme="light" content="Pressure">
-              <div className="pressure">
-                <i class="fas fa-stream"></i>
-                <span>{data?.main.pressure} hPa</span>
-              </div>
-            </Tippy>
+            <div className="pressure other_container">
+              <i class="fas fa-stream"></i>
+              <span className="title">Pressure: </span>
+              <span className="value">{data?.main.pressure} hPa</span>
+            </div>
 
             {/* Wind */}
-            <Tippy theme="light" content="Wind speed">
-              <div className="wind">
-                <i class="fa-solid fa-wind"></i>
-                <span>{data?.wind.speed} m/s</span>
-              </div>
-            </Tippy>
+            <div className="wind other_container">
+              <i class="fa-solid fa-wind"></i>
+              <span className="title">Wind speed: </span>
+              <span className="value">{data?.wind.speed} m/s</span>
+            </div>
 
             {/* Cloud Cover */}
-            <Tippy theme="light" content="Cloud Cover">
-              <div className="cloudiness">
-                <i class="fa-solid fa-cloud"></i>
-                <span>{data?.clouds.all}%</span>
-              </div>
-            </Tippy>
+            <div className="cloudiness other_container">
+              <i class="fa-solid fa-cloud"></i>
+              <span className="title">Cloud Cover: </span>
+              <span className="value">{data?.clouds.all}%</span>
+            </div>
           </div>
           {/* Other - End */}
         </div>
@@ -117,13 +113,13 @@ function CurWeatherDisplay({ data }) {
         <div className={`container2 ${!hideMore && "container2_active"}`}>
           {/* Header */}
           <div className="container2_header">More details</div>
-          {/* temperature */}
-          <div className="temperature">
-            <i class="fa-solid fa-temperature-half"></i>
+          <div className="container2_container">
+            {/* temperature */}
+            <div className="temperature">
+              <i class="fa-solid fa-temperature-half"></i>
 
-            <Tippy theme="light" content="Minimum temperature">
               <div className="temperature_item">
-                Min :{" "}
+                Min temperature:{" "}
                 <span
                   className={`temperature_item_content ${
                     data?.main.temp_min <= 273 &&
@@ -133,10 +129,9 @@ function CurWeatherDisplay({ data }) {
                   {CelsiusConverter(data?.main.temp_min)} <sup>o</sup>C
                 </span>
               </div>
-            </Tippy>
-            <Tippy theme="light" content="Maximum temperature">
+
               <div className="temperature_item">
-                Max :{" "}
+                Max temperature:{" "}
                 <span
                   className={`temperature_item_content ${
                     data?.main.temp_min <= 273 &&
@@ -146,41 +141,37 @@ function CurWeatherDisplay({ data }) {
                   {CelsiusConverter(data?.main.temp_max)} <sup>o</sup>C
                 </span>
               </div>
-            </Tippy>
-          </div>
-
-          {/* pressure - Start*/}
-          {(data?.main.grnd_level || data?.main.sea_level) && (
-            <div className="pressure">
-              {data?.main.grnd_level && (
-                <Tippy
-                  theme="light"
-                  content="Atmospheric pressure on the ground level"
-                >
-                  <div className="pressure_ground">
-                    <i class="fas fa-stream"></i>{" "}
-                    <span>{data?.main.grnd_level} hPa</span>
-                  </div>
-                </Tippy>
-              )}
-              {data?.main.sea_level && (
-                <Tippy
-                  theme="light"
-                  content="Atmospheric pressure on the sea level"
-                >
-                  <div className="pressure_sea">
-                    <i class="fas fa-water"></i>{" "}
-                    <span>{data?.main.sea_level} hPa</span>
-                  </div>
-                </Tippy>
-              )}
             </div>
-          )}
-          {/* pressure - End*/}
-
-          {/* Wind - Start */}
-          <div className="wind">
-            <Tippy theme="light" content="Wind direction">
+            {/* pressure - Start*/}
+            {(data?.main.grnd_level || data?.main.sea_level) && (
+              <div className="pressure">
+                {data?.main.grnd_level && (
+                  <Tippy
+                    theme="light"
+                    content="Atmospheric pressure on the ground level"
+                  >
+                    <div className="pressure_ground">
+                      <i class="fas fa-stream"></i>{" "}
+                      <span>{data?.main.grnd_level} hPa</span>
+                    </div>
+                  </Tippy>
+                )}
+                {data?.main.sea_level && (
+                  <Tippy
+                    theme="light"
+                    content="Atmospheric pressure on the sea level"
+                  >
+                    <div className="pressure_sea">
+                      <i class="fas fa-water"></i>{" "}
+                      <span>{data?.main.sea_level} hPa</span>
+                    </div>
+                  </Tippy>
+                )}
+              </div>
+            )}
+            {/* pressure - End*/}
+            {/* Wind - Start */}
+            <div className="wind">
               {/* wind_direction */}
               <div className="wind_direction">
                 <div className="wind_direction_icon">
@@ -188,33 +179,32 @@ function CurWeatherDisplay({ data }) {
                   <i class="fa-solid fa-ruler"></i>
                 </div>
                 <div className="wind_direction_content">
-                  {data?.wind.deg} deg
+                  Wind direction: <span>{data?.wind.deg} deg</span>
                 </div>
               </div>
-            </Tippy>
-            {data?.wind.gust && (
-              <Tippy theme="light" content="Have wind gust">
+
+              {data?.wind.gust && (
                 <div className="wind_gust">
                   <div className="wind_gust_icon">
                     <i class="fa-solid fa-wind"></i>
                     <i class="fa-solid fa-triangle-exclamation"></i>
                   </div>
-                  <div className="wind_gust_content">{data?.wind.gust} m/s</div>
+                  <div className="wind_gust_content">
+                    Have wind gust: <span>{data?.wind.gust} m/s</span>
+                  </div>
                 </div>
-              </Tippy>
-            )}
-          </div>
-          {/* Wind - End */}
-          {/* visibility - Start */}
-          <div className="visibility">
-            <Tippy theme="light" content="Visibility">
+              )}
+            </div>
+            {/* Wind - End */}
+            {/* visibility - Start */}
+            <div className="visibility">
+              <i class="fa-sharp fa-solid fa-eye"></i>
               <div>
-                <i class="fa-sharp fa-solid fa-eye"></i>
-                {data?.visibility} km
+                Visibility: <span>{data?.visibility} km</span>
               </div>
-            </Tippy>
+            </div>
+            {/* visibility - End */}
           </div>
-          {/* visibility - End */}
 
           {/* Time of data calculation - Start */}
           <div className="time_data_calculation">
